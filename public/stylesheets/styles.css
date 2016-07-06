@@ -516,6 +516,10 @@ footer.footer a:hover {
   left: -1px;
 }
 
+.input-table .sp-content {
+  font-family: "標楷體";
+}
+
 .right-block {
   width: 490px;
   margin: 100px 10px;
