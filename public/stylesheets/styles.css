@@ -443,7 +443,7 @@ footer.footer a:hover {
 }
 
 .input-table {
-  margin: 100px;
+  padding: 100px;
   width: 302px;
   float: left;
 }
@@ -515,7 +515,6 @@ footer.footer a:hover {
   top: -200px;
   left: -1px;
 }
-
 .input-table .sp-content {
   font-family: "標楷體";
 }
