@@ -154,7 +154,7 @@ var D3EKeyboardEventHelper = {
           return "Numpad5";
         break;
         default:
-          return; // 其他完全不理
+          return "NumpadOthers"; // 其他完全不理
       }
     }
 
