@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- 這個網頁是使用 JS 注音的最簡單範例。 -->
+  <title>easyTyping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+  <link rel="stylesheet" media="screen" href="stylesheets/styles.css">
+  <!-- 隱藏遠端的 IFRAME -->
+  <style>
+  iframe.jszhuyin {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <div class="top-wrapper">
+    <div class="center-wrapper">
+      <div class="input-table">
+        <div class="input-table__row">
+          <div class="input-table__cell">
+            ㄅㄆㄇㄈ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄅ</div>
+              <div class="input-table__sub-cell">ㄆ</div>
+              <div class="input-table__sub-cell">ㄇ</div>
+              <div class="input-table__sub-cell">ㄈ</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄉㄊㄋㄌ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄉ</div>
+              <div class="input-table__sub-cell">ㄊ</div>
+              <div class="input-table__sub-cell">ㄋ</div>
+              <div class="input-table__sub-cell">ㄌ</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄍㄎㄏ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄍ</div>
+              <div class="input-table__sub-cell">ㄎ</div>
+              <div class="input-table__sub-cell">ㄏ</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-table__row">
+          <div class="input-table__cell">
+            ㄐㄑㄒ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄐ</div>
+              <div class="input-table__sub-cell">ㄑ</div>
+              <div class="input-table__sub-cell">ㄒ</div>
+            </div>
+          </div>
+          <div class="input-table__cell current">
+            ㄓㄔㄕㄖ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄓ</div>
+              <div class="input-table__sub-cell">ㄔ</div>
+              <div class="input-table__sub-cell">ㄕ</div>
+              <div class="input-table__sub-cell">ㄖ</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄗㄘㄙ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄗ</div>
+              <div class="input-table__sub-cell">ㄘ</div>
+              <div class="input-table__sub-cell">ㄙ</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-table__row">
+          <div class="input-table__cell">
+            ㄚㄛㄜㄝ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄚ</div>
+              <div class="input-table__sub-cell">ㄛ</div>
+              <div class="input-table__sub-cell">ㄜ</div>
+              <div class="input-table__sub-cell">ㄝ</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄞㄟㄠㄡ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄞ</div>
+              <div class="input-table__sub-cell">ㄟ</div>
+              <div class="input-table__sub-cell">ㄠ</div>
+              <div class="input-table__sub-cell">ㄡ</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄢㄣㄤㄥ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄢ</div>
+              <div class="input-table__sub-cell">ㄣ</div>
+              <div class="input-table__sub-cell">ㄤ</div>
+              <div class="input-table__sub-cell">ㄥ</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-table__row">
+          <div class="input-table__cell">
+            ˉˊˇˋ˙
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ˉ</div>
+              <div class="input-table__sub-cell">ˊ</div>
+              <div class="input-table__sub-cell">ˇ</div>
+              <div class="input-table__sub-cell">ˋ</div>
+              <div class="input-table__sub-cell">˙</div>
+            </div>
+          </div>
+          <div class="input-table__cell">
+            ㄦㄧㄨㄩ
+            <div class="input-table__sub-menu">
+              <div class="input-table__sub-cell">ㄦ</div>
+              <div class="input-table__sub-cell">ㄧ</div>
+              <div class="input-table__sub-cell">ㄨ</div>
+              <div class="input-table__sub-cell">ㄩ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-block">
+        <input type="text" id="the-input" class="result-block" onblur="this.focus()" autofocus />
+        <div class="select-block">
+          <div class="select-block__source">
+            <span id="composition"></span>
+          </div>
+          <div class="select-block__list">
+            <ol id="candidates"></ol>
+            <span class="arrow arrow--left"><i class="fa fa-arrow-left"></i></span>
+            <span class="arrow arrow--right"><i class="fa fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="center-wrapper">
+      <p>操作說明：使用數字鍵盤之1（左）、2（下）、3（右）、5（上）鍵做為操控方向鍵；數字鍵盤之Enter鍵為確定；數字鍵盤之.鍵為取消/刪除；數字鍵盤之0鍵用於切換注音輸入/選詞。<strong>**需有數字鍵盤才能正常作用**</strong></p>
+      <p>本網頁仍在實驗中。功能修改自<a href="http://timdream.org/">timdream</a>大人的<a href="https://github.com/timdream/jszhuyin">JS注音</a>，因本人自不量力越級打怪故目前程式碼一團混亂，敬請見諒。</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="./lib/jquery-3.0.0.min.js"></script>
+
+  <!-- 連結 JavaScript -->
+  <script type="text/javascript" src="./lib/client.js"></script>
+  <!--script type="text/javascript" src="./lib/web.js"></script-->
+  <script type="text/javascript" src="./lib/web-modified.js"></script>
+
+  <script type="text/javascript">
+    // 遠端 IFRAME 的網址
+    JSZhuyinServerIframeLoader.prototype.IFRAME_URL =
+      './lib/frame.html';
+
+    // 啟動 JS 注音的網頁介面
+    var webIME = new JSZhuyinWebIME({
+      composition: document.getElementById('composition'),
+      candidatesList: document.getElementById('candidates')
+    });
+  </script>
+</body>
+</html>
