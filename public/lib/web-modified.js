@@ -112,8 +112,6 @@ var D3EKeyboardEventHelper = {
     }
   },
   getCodePropFromEvent: function(evt) {
-    console.log("evt.keyCode"+ evt.keyCode);
-    console.log("evt.code"+ evt.code);
     // safari 抓不到 evt.code
     if (evt.code) {
       return evt.code;
@@ -123,7 +121,6 @@ var D3EKeyboardEventHelper = {
     // Assuming user is on US Keyboard layout, we could get the code value from
     // the key value.
     var key = this.getKeyPropFromEvent(evt);
-    console.log("key "+ key);
     if (!key) {
       return;
     }
@@ -269,16 +266,13 @@ var JSZhuyinLayoutMapper = {
             ' ',
 
   getSymbolFromDOM3Code: function(dom3Code, shiftKey) {
-    console.log("dom3Code "+dom3Code);
     var index = this.codes.indexOf(dom3Code);
-    console.log("index "+ index);
     // numpad 不在列表中所以index會是-1
     if (index === -1) {
       var level = 0;
       if ($(".input-table__cell.selected").length > 0) {
         level = 2;
       }
-      console.log("level "+level);
       var current = $(".input-table__cell.current");
       var cRow = $(".input-table__cell.current").parent().index(".input-table__row");
       var cCol = $(".input-table__cell.current").index();
@@ -661,7 +655,6 @@ JSZhuyinWebIME.prototype.handleEvent = function(evt) {
   }
 
   var code = D3EKeyboardEventHelper.getCodePropFromEvent(evt);
-  console.log("code "+code);
 
   var specialKeys = (['Backspace', 'Enter', 'Escape', 'Space',
                       'ArrowLeft', 'ArrowRight'].indexOf(code) !== -1);
@@ -754,7 +747,6 @@ JSZhuyinWebIME.prototype.handleEvent = function(evt) {
   }
 
   var symbol = JSZhuyinLayoutMapper.getSymbolFromDOM3Code(code, shiftKey);
-  console.log("symbol "+symbol);
   // 判斷是使用到的數字鍵盤的數字就一樣 preventDefault
   if (!symbol && code.match(/^Numpad/)) {
     evt.preventDefault();

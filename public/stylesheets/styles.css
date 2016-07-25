@@ -414,6 +414,7 @@ html, body {
 }
 
 .top-wrapper {
+  position: relative;
   min-height: 100%;
   margin-bottom: -110px;
 }
@@ -581,4 +582,23 @@ footer.footer a:hover {
 }
 #candidates.can-go-left ~ .arrow--left {
   background-color: #555;
+}
+
+#loading-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 110px;
+  left: 0;
+  background: rgba(255, 255, 255, .9);
+  z-index: 5000;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#loading-status .center-wrapper {
+  margin-top: -1em;
 }
